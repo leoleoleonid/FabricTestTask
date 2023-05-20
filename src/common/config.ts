@@ -14,11 +14,17 @@ const getRequiredEnvVar = (name: string) => {
 
 export const config = {
   db: {
+    type: "postgres",
     host: getRequiredEnvVar("POSTGRES_HOST"),
-    user: getRequiredEnvVar("POSTGRES_USER"),
-    port: getRequiredEnvVar("POSTGRES_PORT"),
+    port: parseInt(getRequiredEnvVar("POSTGRES_PORT")),
+    username: getRequiredEnvVar("POSTGRES_USER"),
     password: getRequiredEnvVar("POSTGRES_PASSWORD"),
     database: getRequiredEnvVar("POSTGRES_DB"),
+    entities: [
+      "dist/**/*.entity{.ts,.js}",
+      "src/**/*.entity{.ts,.js}"
+    ],
+    synchronize: true,
   },
   port: parseInt(process.env.PORT || "8000", 10),
 };

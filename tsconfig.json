@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "lib": ["es5", "es6", "dom"],
+    "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "outDir": "./build",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "test/*": ["test/*"]
+    }
   }
 }
