@@ -1,10 +1,12 @@
 import { ErrorCode } from './error-code';
 
 export class ErrorException extends Error {
+  public name = ErrorException.name;
   public status: number;
   public metaData: any = null;
   constructor(code: string = ErrorCode.UnknownError, metaData: any = null) {
     super(code);
+    Object.setPrototypeOf(this, ErrorException.prototype);
     this.name = code;
     this.status = 500;
     this.metaData = metaData;
@@ -13,6 +15,9 @@ export class ErrorException extends Error {
         this.status = 401;
         break;
       case ErrorCode.BadRequest:
+        this.status = 400;
+        break;
+      case ErrorCode.ValidationError:
         this.status = 400;
         break;
       case ErrorCode.NotFound:

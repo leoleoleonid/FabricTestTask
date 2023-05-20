@@ -6,6 +6,7 @@ import { ErrorModel } from './error-model';
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log('Path:', req.path);
   console.error('Error occurred:', err);
+  console.log(err.name, err instanceof ErrorException)
   if (err instanceof ErrorException) {
     res.status(err.status).send(err);
   } else {
