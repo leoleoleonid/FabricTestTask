@@ -19,21 +19,6 @@ export enum ProductType {
     apple = "apple"
 }
 
-// export enum ProductType =
-//      "milk",
-//     | "yogurt",
-//     | "cheese",
-//     | "bleach",
-//     | "stain",
-//     | "removal",
-//     | "insulin",
-//     | "bread",
-//     | "pasta",
-//     | "salt",
-//     | "bamba",
-//     | "apple"
-// }
-
 const cellTypeToProductType:{ [key: string]: ProductType[]} = {};
 // cellTypeToProductType[CellType.Others] = [ProductType.bread, ProductType.pasta, ProductType.salt, ProductType.bamba, ProductType.apple];
 // cellTypeToProductType[CellType.Chilled] = [ProductType.milk, ProductType.yogurt, ProductType.insulin, ProductType.cheese];

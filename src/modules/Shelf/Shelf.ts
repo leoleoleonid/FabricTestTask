@@ -11,8 +11,8 @@ export class Shelf {
 
     static init() {
         const cells : Cell[][] = [];
-        for (let x = 0; x < Shelf.maxX; x++) {
-            for (let y = 0; y < Shelf.maxY; y++) {
+        for (let x = 0; x <= Shelf.maxX; x++) {
+            for (let y = 0; y <= Shelf.maxY; y++) {
                 let cellType = [];
                 if (x > 8) {
                     cellType.push(CellType.Hazardous);
@@ -35,7 +35,7 @@ export class Shelf {
                     cell.setProductAmount(5);
                     cell.setProductType(ProductType.bamba);
 
-                } else if (x === 0 && y === 9) {
+                } else if (x === 9 && y === 0) {
                     cell.setProductAmount(8);
                     cell.setProductType(ProductType.bleach);
                 }
@@ -48,8 +48,8 @@ export class Shelf {
     }
 
     public findCell(productType: ProductType, quantity: number) : number[] | string {
-        for (let x = 0; x < Shelf.maxX; x++) {
-            for (let y = 0; y < Shelf.maxY; y++) {
+        for (let x = 0; x <= Shelf.maxX; x++) {
+            for (let y = 0; y <= Shelf.maxY; y++) {
                 const cell = this.cells[x][y];
                 try {
                     return cell.addProducts(productType, quantity)
