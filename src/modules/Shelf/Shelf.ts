@@ -47,19 +47,26 @@ export class Shelf {
         return new Shelf(cells);
     }
 
-    public findCell(productType: ProductType, quantity: number) : number[] | string {
+    public findCell(productType: ProductType, quantity: number) : { foundCell: boolean, cell?: string } {
         for (let x = 0; x <= Shelf.maxX; x++) {
             for (let y = 0; y <= Shelf.maxY; y++) {
                 const cell = this.cells[x][y];
                 try {
-                    return cell.addProducts(productType, quantity)
+                    const foundCell = cell.addProducts(productType, quantity);
+
+                    return {
+                        cell: foundCell.join(','),
+                        foundCell: true
+                    }
                 } catch (e) {
                     console.error(e);
                 }
             }
         }
 
-        return 'No valid cell'
+        return {
+            foundCell: false
+        }
     }
 }
 

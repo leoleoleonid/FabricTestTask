@@ -20,9 +20,6 @@ export enum ProductType {
 }
 
 const cellTypeToProductType:{ [key: string]: ProductType[]} = {};
-// cellTypeToProductType[CellType.Others] = [ProductType.bread, ProductType.pasta, ProductType.salt, ProductType.bamba, ProductType.apple];
-// cellTypeToProductType[CellType.Chilled] = [ProductType.milk, ProductType.yogurt, ProductType.insulin, ProductType.cheese];
-// cellTypeToProductType[CellType.Hazardous] = [ProductType.bleach, ProductType.stain, ProductType.removal, ProductType.insulin];
 cellTypeToProductType["Others"] = [ProductType.bread, ProductType.pasta, ProductType.salt, ProductType.bamba, ProductType.apple];
 cellTypeToProductType["Chilled"] = [ProductType.milk, ProductType.yogurt, ProductType.insulin, ProductType.cheese];
 cellTypeToProductType["Hazardous"] = [ProductType.bleach, ProductType.stain, ProductType.removal, ProductType.insulin];
