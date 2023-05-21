@@ -7,8 +7,11 @@ import {dataSource} from "./common/db/connection";
 import createRoutes from "./createRoutes";
 import bodyParser from "body-parser";
 
+import {shelfInst} from "./modules/Shelf/Shelf";
+
 const PORT = config.port;
 
+shelfInst
 const app: Application = express();
 // @ts-ignore
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,12 +29,13 @@ createRoutes(app);
 
 app.use(errorHandler);
 
-dataSource.initialize().then( () => {
+// dataSource.initialize().then( () => {
     app.listen(PORT, () => {
         console.log("Server is running on port", PORT);
     });
-}).catch((e) => {
-    console.error(`Can't connect to DB!!!`)
-    console.error(e)
-    process.exit(0)
-})
+
+// }).catch((e) => {
+//     console.error(`Can't connect to DB!!!`)
+//     console.error(e)
+//     process.exit(0)
+// })
